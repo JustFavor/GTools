@@ -1,0 +1,767 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		05AA2DDC2EC2D6D8005B1D2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AA2DC12EC2D6D6005B1D2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05AA2DC82EC2D6D6005B1D2B;
+			remoteInfo = GTools;
+		};
+		05AA2DE62EC2D6D8005B1D2B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05AA2DC12EC2D6D6005B1D2B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05AA2DC82EC2D6D6005B1D2B;
+			remoteInfo = GTools;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		05AA2E382EC30B4C005B1D2B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		05AA2DC92EC2D6D6005B1D2B /* GTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AA2DDB2EC2D6D8005B1D2B /* GToolsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GToolsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AA2DE52EC2D6D8005B1D2B /* GToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AA2E292EC30AD3005B1D2B /* GToolLogin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GToolLogin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05AA2E3A2EC30B4C005B1D2B /* GToolHelper */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GToolHelper; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		05AA2DCB2EC2D6D6005B1D2B /* GTools */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GTools;
+			sourceTree = "<group>";
+		};
+		05AA2DDE2EC2D6D8005B1D2B /* GToolsTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GToolsTests;
+			sourceTree = "<group>";
+		};
+		05AA2DE82EC2D6D8005B1D2B /* GToolsUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GToolsUITests;
+			sourceTree = "<group>";
+		};
+		05AA2E2A2EC30AD3005B1D2B /* GToolLogin */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GToolLogin;
+			sourceTree = "<group>";
+		};
+		05AA2E3B2EC30B4C005B1D2B /* GToolHelper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GToolHelper;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05AA2DC62EC2D6D6005B1D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2DD82EC2D6D8005B1D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2DE22EC2D6D8005B1D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2E262EC30AD3005B1D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2E372EC30B4C005B1D2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05AA2DC02EC2D6D6005B1D2B = {
+			isa = PBXGroup;
+			children = (
+				05AA2DCB2EC2D6D6005B1D2B /* GTools */,
+				05AA2DDE2EC2D6D8005B1D2B /* GToolsTests */,
+				05AA2DE82EC2D6D8005B1D2B /* GToolsUITests */,
+				05AA2E2A2EC30AD3005B1D2B /* GToolLogin */,
+				05AA2E3B2EC30B4C005B1D2B /* GToolHelper */,
+				05AA2DCA2EC2D6D6005B1D2B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		05AA2DCA2EC2D6D6005B1D2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05AA2DC92EC2D6D6005B1D2B /* GTools.app */,
+				05AA2DDB2EC2D6D8005B1D2B /* GToolsTests.xctest */,
+				05AA2DE52EC2D6D8005B1D2B /* GToolsUITests.xctest */,
+				05AA2E292EC30AD3005B1D2B /* GToolLogin.app */,
+				05AA2E3A2EC30B4C005B1D2B /* GToolHelper */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05AA2DC82EC2D6D6005B1D2B /* GTools */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AA2DEF2EC2D6D8005B1D2B /* Build configuration list for PBXNativeTarget "GTools" */;
+			buildPhases = (
+				05AA2DC52EC2D6D6005B1D2B /* Sources */,
+				05AA2DC62EC2D6D6005B1D2B /* Frameworks */,
+				05AA2DC72EC2D6D6005B1D2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				05AA2DCB2EC2D6D6005B1D2B /* GTools */,
+			);
+			name = GTools;
+			packageProductDependencies = (
+			);
+			productName = GTools;
+			productReference = 05AA2DC92EC2D6D6005B1D2B /* GTools.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05AA2DDA2EC2D6D8005B1D2B /* GToolsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AA2DF22EC2D6D8005B1D2B /* Build configuration list for PBXNativeTarget "GToolsTests" */;
+			buildPhases = (
+				05AA2DD72EC2D6D8005B1D2B /* Sources */,
+				05AA2DD82EC2D6D8005B1D2B /* Frameworks */,
+				05AA2DD92EC2D6D8005B1D2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05AA2DDD2EC2D6D8005B1D2B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				05AA2DDE2EC2D6D8005B1D2B /* GToolsTests */,
+			);
+			name = GToolsTests;
+			packageProductDependencies = (
+			);
+			productName = GToolsTests;
+			productReference = 05AA2DDB2EC2D6D8005B1D2B /* GToolsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		05AA2DE42EC2D6D8005B1D2B /* GToolsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AA2DF52EC2D6D8005B1D2B /* Build configuration list for PBXNativeTarget "GToolsUITests" */;
+			buildPhases = (
+				05AA2DE12EC2D6D8005B1D2B /* Sources */,
+				05AA2DE22EC2D6D8005B1D2B /* Frameworks */,
+				05AA2DE32EC2D6D8005B1D2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05AA2DE72EC2D6D8005B1D2B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				05AA2DE82EC2D6D8005B1D2B /* GToolsUITests */,
+			);
+			name = GToolsUITests;
+			packageProductDependencies = (
+			);
+			productName = GToolsUITests;
+			productReference = 05AA2DE52EC2D6D8005B1D2B /* GToolsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		05AA2E282EC30AD3005B1D2B /* GToolLogin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AA2E352EC30AD4005B1D2B /* Build configuration list for PBXNativeTarget "GToolLogin" */;
+			buildPhases = (
+				05AA2E252EC30AD3005B1D2B /* Sources */,
+				05AA2E262EC30AD3005B1D2B /* Frameworks */,
+				05AA2E272EC30AD3005B1D2B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				05AA2E2A2EC30AD3005B1D2B /* GToolLogin */,
+			);
+			name = GToolLogin;
+			packageProductDependencies = (
+			);
+			productName = GToolLogin;
+			productReference = 05AA2E292EC30AD3005B1D2B /* GToolLogin.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05AA2E392EC30B4C005B1D2B /* GToolHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05AA2E3E2EC30B4C005B1D2B /* Build configuration list for PBXNativeTarget "GToolHelper" */;
+			buildPhases = (
+				05AA2E362EC30B4C005B1D2B /* Sources */,
+				05AA2E372EC30B4C005B1D2B /* Frameworks */,
+				05AA2E382EC30B4C005B1D2B /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				05AA2E3B2EC30B4C005B1D2B /* GToolHelper */,
+			);
+			name = GToolHelper;
+			packageProductDependencies = (
+			);
+			productName = GToolHelper;
+			productReference = 05AA2E3A2EC30B4C005B1D2B /* GToolHelper */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05AA2DC12EC2D6D6005B1D2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					05AA2DC82EC2D6D6005B1D2B = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					05AA2DDA2EC2D6D8005B1D2B = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 05AA2DC82EC2D6D6005B1D2B;
+					};
+					05AA2DE42EC2D6D8005B1D2B = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 05AA2DC82EC2D6D6005B1D2B;
+					};
+					05AA2E282EC30AD3005B1D2B = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					05AA2E392EC30B4C005B1D2B = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = 05AA2DC42EC2D6D6005B1D2B /* Build configuration list for PBXProject "GTools" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 05AA2DC02EC2D6D6005B1D2B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 05AA2DCA2EC2D6D6005B1D2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05AA2DC82EC2D6D6005B1D2B /* GTools */,
+				05AA2E282EC30AD3005B1D2B /* GToolLogin */,
+				05AA2DDA2EC2D6D8005B1D2B /* GToolsTests */,
+				05AA2DE42EC2D6D8005B1D2B /* GToolsUITests */,
+				05AA2E392EC30B4C005B1D2B /* GToolHelper */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05AA2DC72EC2D6D6005B1D2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2DD92EC2D6D8005B1D2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2DE32EC2D6D8005B1D2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2E272EC30AD3005B1D2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05AA2DC52EC2D6D6005B1D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2DD72EC2D6D8005B1D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2DE12EC2D6D8005B1D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2E252EC30AD3005B1D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05AA2E362EC30B4C005B1D2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05AA2DDD2EC2D6D8005B1D2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05AA2DC82EC2D6D6005B1D2B /* GTools */;
+			targetProxy = 05AA2DDC2EC2D6D8005B1D2B /* PBXContainerItemProxy */;
+		};
+		05AA2DE72EC2D6D8005B1D2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05AA2DC82EC2D6D6005B1D2B /* GTools */;
+			targetProxy = 05AA2DE62EC2D6D8005B1D2B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		05AA2DED2EC2D6D8005B1D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		05AA2DEE2EC2D6D8005B1D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		05AA2DF02EC2D6D8005B1D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GTools/GTools.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GTools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Debug;
+		};
+		05AA2DF12EC2D6D8005B1D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GTools/GTools.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GTools;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+			};
+			name = Release;
+		};
+		05AA2DF32EC2D6D8005B1D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GToolsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GTools.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GTools";
+			};
+			name = Debug;
+		};
+		05AA2DF42EC2D6D8005B1D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GToolsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GTools.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GTools";
+			};
+			name = Release;
+		};
+		05AA2DF62EC2D6D8005B1D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GToolsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_TARGET_NAME = GTools;
+			};
+			name = Debug;
+		};
+		05AA2DF72EC2D6D8005B1D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GToolsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TEST_TARGET_NAME = GTools;
+			};
+			name = Release;
+		};
+		05AA2E332EC30AD4005B1D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GToolLogin/GToolLogin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GToolLogin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		05AA2E342EC30AD4005B1D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GToolLogin/GToolLogin.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainNibFile = MainMenu;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GToolLogin;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		05AA2E3F2EC30B4C005B1D2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GTools.helper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		05AA2E402EC30B4C005B1D2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 4VK4YVAX26;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gh.GTools.helper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05AA2DC42EC2D6D6005B1D2B /* Build configuration list for PBXProject "GTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AA2DED2EC2D6D8005B1D2B /* Debug */,
+				05AA2DEE2EC2D6D8005B1D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AA2DEF2EC2D6D8005B1D2B /* Build configuration list for PBXNativeTarget "GTools" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AA2DF02EC2D6D8005B1D2B /* Debug */,
+				05AA2DF12EC2D6D8005B1D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AA2DF22EC2D6D8005B1D2B /* Build configuration list for PBXNativeTarget "GToolsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AA2DF32EC2D6D8005B1D2B /* Debug */,
+				05AA2DF42EC2D6D8005B1D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AA2DF52EC2D6D8005B1D2B /* Build configuration list for PBXNativeTarget "GToolsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AA2DF62EC2D6D8005B1D2B /* Debug */,
+				05AA2DF72EC2D6D8005B1D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AA2E352EC30AD4005B1D2B /* Build configuration list for PBXNativeTarget "GToolLogin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AA2E332EC30AD4005B1D2B /* Debug */,
+				05AA2E342EC30AD4005B1D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05AA2E3E2EC30B4C005B1D2B /* Build configuration list for PBXNativeTarget "GToolHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05AA2E3F2EC30B4C005B1D2B /* Debug */,
+				05AA2E402EC30B4C005B1D2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 05AA2DC12EC2D6D6005B1D2B /* Project object */;
+}
