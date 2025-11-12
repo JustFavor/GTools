@@ -14,7 +14,7 @@ typedef NS_ENUM(NSInteger, DeviceType) {
     DeviceTypeiPhone
 };
 
-@interface StatusPopupWindow ()
+@interface StatusPopupWindow () <WKNavigationDelegate>
 
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, strong) NSVisualEffectView *navigationBar;
@@ -24,6 +24,7 @@ typedef NS_ENUM(NSInteger, DeviceType) {
 @property (nonatomic, strong) NSTextField *urlTextField;
 @property (nonatomic, strong) NSButton *goButton;
 @property (nonatomic, strong) NSPopUpButton *deviceSelector;
+@property (nonatomic, strong) NSProgressIndicator *progressIndicator;
 @property (nonatomic, assign) DeviceType currentDeviceType;
 
 @end
@@ -95,8 +96,15 @@ typedef NS_ENUM(NSInteger, DeviceType) {
     self.webView.layer.cornerRadius = 8;
     self.webView.layer.masksToBounds = YES;
 
+    // 设置导航代理
+    self.webView.navigationDelegate = self;
+
     // 设置User Agent
     self.webView.customUserAgent = [self userAgentForDeviceType:self.currentDeviceType];
+
+    // 监听加载进度
+    [self.webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+    [self.webView addObserver:self forKeyPath:@"URL" options:NSKeyValueObservingOptionNew context:nil];
 
     // 加载内置HTML首页
     [self loadHomePage];
@@ -200,6 +208,17 @@ typedef NS_ENUM(NSInteger, DeviceType) {
     self.goButton.bezelStyle = NSBezelStyleRounded;
     [self.navigationBar addSubview:self.goButton];
 
+    // 创建进度条
+    self.progressIndicator = [[NSProgressIndicator alloc] initWithFrame:NSZeroRect];
+    self.progressIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+    self.progressIndicator.style = NSProgressIndicatorStyleBar;
+    self.progressIndicator.indeterminate = NO;
+    self.progressIndicator.minValue = 0.0;
+    self.progressIndicator.maxValue = 1.0;
+    self.progressIndicator.doubleValue = 0.0;
+    self.progressIndicator.hidden = YES;
+    [self.contentView addSubview:self.progressIndicator];
+
     // 设置约束
     [self setupConstraints];
 }
@@ -213,7 +232,8 @@ typedef NS_ENUM(NSInteger, DeviceType) {
         @"forwardButton": self.forwardButton,
         @"homeButton": self.homeButton,
         @"urlTextField": self.urlTextField,
-        @"goButton": self.goButton
+        @"goButton": self.goButton,
+        @"progressIndicator": self.progressIndicator
     };
 
     // 导航栏约束 - 移到底部
@@ -228,6 +248,16 @@ typedef NS_ENUM(NSInteger, DeviceType) {
 
     // WebView约束
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[webView]|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:views]];
+
+    // 进度条约束 - 放在WebView顶部
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[progressIndicator]|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:views]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[progressIndicator(3)]"
                                                                              options:0
                                                                              metrics:nil
                                                                                views:views]];
@@ -339,6 +369,105 @@ typedef NS_ENUM(NSInteger, DeviceType) {
 
 - (BOOL)canBecomeKeyWindow {
     return YES;
+}
+
+#pragma mark - KVO
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"estimatedProgress"]) {
+        // 更新进度条
+        self.progressIndicator.doubleValue = self.webView.estimatedProgress;
+
+        // 当进度为0或1时隐藏进度条，否则显示
+        if (self.webView.estimatedProgress >= 1.0) {
+            self.progressIndicator.hidden = YES;
+        } else {
+            self.progressIndicator.hidden = NO;
+        }
+    } else if ([keyPath isEqualToString:@"URL"]) {
+        // 更新URL地址栏
+        if (self.webView.URL) {
+            self.urlTextField.stringValue = self.webView.URL.absoluteString;
+        }
+    }
+}
+
+#pragma mark - WKNavigationDelegate
+
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    // 允许所有导航请求
+    decisionHandler(WKNavigationActionPolicyAllow);
+}
+
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
+    // 开始加载时显示进度条
+    self.progressIndicator.hidden = NO;
+    self.progressIndicator.doubleValue = 0.0;
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    // 加载完成时隐藏进度条
+    self.progressIndicator.hidden = YES;
+
+    // 更新URL地址栏
+    if (webView.URL) {
+        self.urlTextField.stringValue = webView.URL.absoluteString;
+    }
+}
+
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    // 加载失败时隐藏进度条
+    self.progressIndicator.hidden = YES;
+    NSLog(@"Navigation failed with error: %@", error.localizedDescription);
+}
+
+- (void)webView:(WKWebView *)webView didFailProvisionalNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    // 临时加载失败时隐藏进度条
+    self.progressIndicator.hidden = YES;
+    NSLog(@"Provisional navigation failed with error: %@", error.localizedDescription);
+}
+
+#pragma mark - Public Methods
+
+- (void)clearWebCache {
+    NSSet *websiteDataTypes = [NSSet setWithArray:@[
+        WKWebsiteDataTypeDiskCache,
+        WKWebsiteDataTypeMemoryCache,
+        WKWebsiteDataTypeCookies,
+        WKWebsiteDataTypeSessionStorage,
+        WKWebsiteDataTypeLocalStorage,
+        WKWebsiteDataTypeWebSQLDatabases,
+        WKWebsiteDataTypeIndexedDBDatabases
+    ]];
+
+    NSDate *dateFrom = [NSDate dateWithTimeIntervalSince1970:0];
+
+    [[WKWebsiteDataStore defaultDataStore] removeDataOfTypes:websiteDataTypes
+                                               modifiedSince:dateFrom
+                                           completionHandler:^{
+        NSLog(@"Web缓存已清除");
+
+        // 清除后重新加载首页
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self loadHomePage];
+
+            // 显示提示
+            NSAlert *alert = [[NSAlert alloc] init];
+            alert.messageText = @"清除成功";
+            alert.informativeText = @"Web缓存已清除，页面已重新加载";
+            alert.alertStyle = NSAlertStyleInformational;
+            [alert addButtonWithTitle:@"确定"];
+            [alert runModal];
+        });
+    }];
+}
+
+#pragma mark - Dealloc
+
+- (void)dealloc {
+    // 移除KVO观察者
+    [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
+    [self.webView removeObserver:self forKeyPath:@"URL"];
 }
 
 @end

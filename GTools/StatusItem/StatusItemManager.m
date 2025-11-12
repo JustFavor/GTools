@@ -137,6 +137,13 @@
         [self.rightClickMenu addItem:[NSMenuItem separatorItem]];
     }
 
+    // 添加清除Web缓存菜单项
+    NSMenuItem *clearCacheItem = [[NSMenuItem alloc] initWithTitle:@"清除Web缓存"
+                                                            action:@selector(clearWebCache:)
+                                                     keyEquivalent:@""];
+    clearCacheItem.target = self;
+    [self.rightClickMenu addItem:clearCacheItem];
+
     // 添加设置菜单项
     NSMenuItem *settingsItem = [[NSMenuItem alloc] initWithTitle:@"设置"
                                                           action:@selector(openSettings:)
@@ -244,6 +251,20 @@
 
     if (errorDict) {
         NSLog(@"执行AppleScript失败: %@", errorDict);
+    }
+}
+
+- (void)clearWebCache:(id)sender {
+    if (self.popupWindow) {
+        [self.popupWindow clearWebCache];
+    } else {
+        // 如果窗口还没创建，显示提示
+        NSAlert *alert = [[NSAlert alloc] init];
+        alert.messageText = @"提示";
+        alert.informativeText = @"请先打开Web容器后再清除缓存";
+        alert.alertStyle = NSAlertStyleInformational;
+        [alert addButtonWithTitle:@"确定"];
+        [alert runModal];
     }
 }
 

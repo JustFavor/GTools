@@ -11,6 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface StatusPopupWindow : NSWindow
 
+- (void)clearWebCache;
+
 @end
 
 NS_ASSUME_NONNULL_END
