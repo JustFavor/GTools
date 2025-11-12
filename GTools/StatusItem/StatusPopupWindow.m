@@ -88,9 +88,6 @@ typedef NS_ENUM(NSInteger, DeviceType) {
     // 创建WebView配置
     WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
 
-    // 设置User Agent
-    [self updateUserAgentForDeviceType:self.currentDeviceType config:config];
-
     // 创建WebView
     self.webView = [[WKWebView alloc] initWithFrame:NSZeroRect configuration:config];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -98,14 +95,28 @@ typedef NS_ENUM(NSInteger, DeviceType) {
     self.webView.layer.cornerRadius = 8;
     self.webView.layer.masksToBounds = YES;
 
-    // 加载默认页面
-    NSURL *url = [NSURL URLWithString:@"https://www.bilibili.com"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
+    // 设置User Agent
+    self.webView.customUserAgent = [self userAgentForDeviceType:self.currentDeviceType];
+
+    // 加载内置HTML首页
+    [self loadHomePage];
     [self.contentView addSubview:self.webView];
 }
 
-- (void)updateUserAgentForDeviceType:(DeviceType)deviceType config:(WKWebViewConfiguration *)config {
+- (void)loadHomePage {
+    NSString *htmlPath = [[NSBundle mainBundle] pathForResource:@"home" ofType:@"html"];
+    if (htmlPath) {
+        NSURL *htmlURL = [NSURL fileURLWithPath:htmlPath];
+        [self.webView loadFileURL:htmlURL allowingReadAccessToURL:htmlURL.URLByDeletingLastPathComponent];
+    } else {
+        // 如果找不到HTML文件，加载默认网页
+        NSURL *url = [NSURL URLWithString:@"https://www.bilibili.com"];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+    }
+}
+
+- (NSString *)userAgentForDeviceType:(DeviceType)deviceType {
     NSString *userAgent;
 
     switch (deviceType) {
@@ -121,7 +132,7 @@ typedef NS_ENUM(NSInteger, DeviceType) {
             break;
     }
 
-    config.applicationNameForUserAgent = userAgent;
+    return userAgent;
 }
 
 - (void)setupNavigationBar {
@@ -255,9 +266,14 @@ typedef NS_ENUM(NSInteger, DeviceType) {
             break;
     }
 
+    // 更新User Agent
+    self.webView.customUserAgent = [self userAgentForDeviceType:self.currentDeviceType];
+
     // 重新设置窗口大小
     NSRect newFrame = [self frameForDeviceType:self.currentDeviceType];
     NSRect currentFrame = self.frame;
+    NSScreen *screen = self.screen ?: [NSScreen mainScreen];
+    NSRect screenFrame = screen.visibleFrame;
 
     // 保持窗口中心位置
     CGFloat centerX = NSMidX(currentFrame);
@@ -265,6 +281,20 @@ typedef NS_ENUM(NSInteger, DeviceType) {
 
     newFrame.origin.x = centerX - newFrame.size.width / 2;
     newFrame.origin.y = centerY - newFrame.size.height / 2;
+
+    // 确保窗口不超出屏幕边界
+    if (NSMaxX(newFrame) > NSMaxX(screenFrame)) {
+        newFrame.origin.x = NSMaxX(screenFrame) - newFrame.size.width;
+    }
+    if (newFrame.origin.x < screenFrame.origin.x) {
+        newFrame.origin.x = screenFrame.origin.x;
+    }
+    if (NSMaxY(newFrame) > NSMaxY(screenFrame)) {
+        newFrame.origin.y = NSMaxY(screenFrame) - newFrame.size.height;
+    }
+    if (newFrame.origin.y < screenFrame.origin.y) {
+        newFrame.origin.y = screenFrame.origin.y;
+    }
 
     [self setFrame:newFrame display:YES animate:YES];
 
@@ -285,9 +315,7 @@ typedef NS_ENUM(NSInteger, DeviceType) {
 }
 
 - (void)goHome:(id)sender {
-    NSURL *url = [NSURL URLWithString:@"https://www.bilibili.com"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    [self.webView loadRequest:request];
+    [self loadHomePage];
 }
 
 - (void)loadURL:(id)sender {

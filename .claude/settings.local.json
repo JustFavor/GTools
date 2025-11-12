@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(xcodebuild clean -project GTools.xcodeproj -scheme GTools)",
+      "Bash(xcodebuild build -project GTools.xcodeproj -scheme GTools)"
     ],
     "deny": [],
     "ask": []
