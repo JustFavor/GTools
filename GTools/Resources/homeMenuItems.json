@@ -1,0 +1,65 @@
+{
+  "quickLinks": [
+    { "name": "百度", "url": "https://www.baidu.com" },
+    { "name": "必应", "url": "https://www.bing.com" },
+    { "name": "Google", "url": "https://www.google.com" },
+    { "name": "GitHub", "url": "https://github.com" },
+    { "name": "Stack Overflow", "url": "https://stackoverflow.com" }
+  ],
+  "categories": [
+    {
+      "title": "开发工具",
+      "links": [
+        { "icon": "💻", "name": "GitHub", "desc": "代码托管", "url": "https://github.com" },
+        { "icon": "❓", "name": "Stack Overflow", "desc": "问答社区", "url": "https://stackoverflow.com" },
+        { "icon": "📚", "name": "MDN", "desc": "Web文档", "url": "https://developer.mozilla.org" },
+        { "icon": "📦", "name": "NPM", "desc": "包管理", "url": "https://www.npmjs.com" }
+      ]
+    },
+    {
+      "title": "设计资源",
+      "links": [
+        { "icon": "🎨", "name": "Figma", "desc": "设计工具", "url": "https://www.figma.com" },
+        { "icon": "🏀", "name": "Dribbble", "desc": "设计灵感", "url": "https://dribbble.com" },
+        { "icon": "🎭", "name": "Behance", "desc": "作品展示", "url": "https://www.behance.net" },
+        { "icon": "📷", "name": "Unsplash", "desc": "免费图片", "url": "https://unsplash.com" }
+      ]
+    },
+    {
+      "title": "学习平台",
+      "links": [
+        { "icon": "📺", "name": "哔哩哔哩", "desc": "视频学习", "url": "https://www.bilibili.com" },
+        { "icon": "▶️", "name": "YouTube", "desc": "视频平台", "url": "https://www.youtube.com" },
+        { "icon": "🎓", "name": "Coursera", "desc": "在线课程", "url": "https://www.coursera.org" },
+        { "icon": "📖", "name": "Udemy", "desc": "技能学习", "url": "https://www.udemy.com" }
+      ]
+    },
+    {
+      "title": "实用工具",
+      "links": [
+        { "icon": "🌐", "name": "Google翻译", "desc": "在线翻译", "url": "https://translate.google.com" },
+        { "icon": "🔤", "name": "DeepL", "desc": "AI翻译", "url": "https://www.deepl.com" },
+        { "icon": "🔍", "name": "Regex101", "desc": "正则测试", "url": "https://regex101.com" },
+        { "icon": "✅", "name": "Can I Use", "desc": "兼容性查询", "url": "https://caniuse.com" }
+      ]
+    },
+    {
+      "title": "AI工具",
+      "links": [
+        { "icon": "🤖", "name": "ChatGPT", "desc": "AI对话", "url": "https://chat.openai.com" },
+        { "icon": "🧠", "name": "Claude", "desc": "AI助手", "url": "https://claude.ai" },
+        { "icon": "🎨", "name": "Midjourney", "desc": "AI绘画", "url": "https://www.midjourney.com" },
+        { "icon": "✨", "name": "GitHub Copilot", "desc": "AI编程", "url": "https://copilot.github.com" }
+      ]
+    },
+    {
+      "title": "社交媒体",
+      "links": [
+        { "icon": "🐦", "name": "Twitter", "desc": "社交平台", "url": "https://twitter.com" },
+        { "icon": "🔴", "name": "Reddit", "desc": "论坛社区", "url": "https://www.reddit.com" },
+        { "icon": "💡", "name": "知乎", "desc": "问答社区", "url": "https://www.zhihu.com" },
+        { "icon": "📱", "name": "微博", "desc": "社交网络", "url": "https://weibo.com" }
+      ]
+    }
+  ]
+}

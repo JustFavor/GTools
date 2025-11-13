@@ -1,0 +1,28 @@
+{
+  "menuItems": [
+    {
+      "title": "打开终端",
+      "action": "open:/Applications/Utilities/Terminal.app"
+    },
+    {
+      "title": "打开访达",
+      "action": "open:/System/Library/CoreServices/Finder.app"
+    },
+    {
+      "title": "查看系统信息",
+      "action": "cmd:system_profiler SPSoftwareDataType"
+    },
+    {
+      "title": "打开Safari",
+      "action": "as:tell application \"Safari\" to activate"
+    },
+    {
+      "title": "清理DNS缓存(需要密码)",
+      "action": "sudo:cmd:dscacheutil -flushcache; killall -HUP mDNSResponder"
+    },
+    {
+      "title": "喵街Pod",
+      "action": "cmd:cd /Users/yyhmac/Documents/work/TestProject/shoppingstreets-ios/ShoppingStreets && ./Scripts/MJPod/mjPod.sh"
+    }
+  ]
+}

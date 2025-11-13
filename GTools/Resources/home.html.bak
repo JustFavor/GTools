@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>GTools - 工具聚合</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .search-box {
+            background: white;
+            border-radius: 50px;
+            padding: 15px 25px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 5px;
+        }
+
+        .search-box button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #5568d3;
+        }
+
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .category {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .category-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+        }
+
+        .category-title::before {
+            content: "📌";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .links {
+            display: grid;
+            gap: 10px;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .link-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .link-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            font-size: 20px;
+        }
+
+        .link-name {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .link-desc {
+            font-size: 0.85em;
+            color: #666;
+            margin-left: 10px;
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .categories {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+        }
+
+        .quick-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .quick-link {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background 0.3s;
+            backdrop-filter: blur(10px);
+        }
+
+        .quick-link:hover {
+            background: rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛠️ GTools</h1>
+            <p class="subtitle">你的专属工具聚合平台</p>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="搜索网站或输入网址..." onkeypress="handleSearch(event)">
+            <button onclick="performSearch()">搜索</button>
+        </div>
+
+        <div class="quick-links">
+            <a href="https://www.baidu.com" class="quick-link">百度</a>
+            <a href="https://www.bing.com" class="quick-link">必应</a>
+            <a href="https://www.google.com" class="quick-link">Google</a>
+            <a href="https://github.com" class="quick-link">GitHub</a>
+            <a href="https://stackoverflow.com" class="quick-link">Stack Overflow</a>
+        </div>
+
+        <div class="categories">
+            <!-- 开发工具 -->
+            <div class="category">
+                <div class="category-title">开发工具</div>
+                <div class="links">
+                    <a href="https://github.com" class="link-item">
+                        <span class="link-icon">💻</span>
+                        <span class="link-name">GitHub</span>
+                        <span class="link-desc">代码托管</span>
+                    </a>
+                    <a href="https://stackoverflow.com" class="link-item">
+                        <span class="link-icon">❓</span>
+                        <span class="link-name">Stack Overflow</span>
+                        <span class="link-desc">问答社区</span>
+                    </a>
+                    <a href="https://developer.mozilla.org" class="link-item">
+                        <span class="link-icon">📚</span>
+                        <span class="link-name">MDN</span>
+                        <span class="link-desc">Web文档</span>
+                    </a>
+                    <a href="https://www.npmjs.com" class="link-item">
+                        <span class="link-icon">📦</span>
+                        <span class="link-name">NPM</span>
+                        <span class="link-desc">包管理</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 设计资源 -->
+            <div class="category">
+                <div class="category-title">设计资源</div>
+                <div class="links">
+                    <a href="https://www.figma.com" class="link-item">
+                        <span class="link-icon">🎨</span>
+                        <span class="link-name">Figma</span>
+                        <span class="link-desc">设计工具</span>
+                    </a>
+                    <a href="https://dribbble.com" class="link-item">
+                        <span class="link-icon">🏀</span>
+                        <span class="link-name">Dribbble</span>
+                        <span class="link-desc">设计灵感</span>
+                    </a>
+                    <a href="https://www.behance.net" class="link-item">
+                        <span class="link-icon">🎭</span>
+                        <span class="link-name">Behance</span>
+                        <span class="link-desc">作品展示</span>
+                    </a>
+                    <a href="https://unsplash.com" class="link-item">
+                        <span class="link-icon">📷</span>
+                        <span class="link-name">Unsplash</span>
+                        <span class="link-desc">免费图片</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 学习平台 -->
+            <div class="category">
+                <div class="category-title">学习平台</div>
+                <div class="links">
+                    <a href="https://www.bilibili.com" class="link-item">
+                        <span class="link-icon">📺</span>
+                        <span class="link-name">哔哩哔哩</span>
+                        <span class="link-desc">视频学习</span>
+                    </a>
+                    <a href="https://www.youtube.com" class="link-item">
+                        <span class="link-icon">▶️</span>
+                        <span class="link-name">YouTube</span>
+                        <span class="link-desc">视频平台</span>
+                    </a>
+                    <a href="https://www.coursera.org" class="link-item">
+                        <span class="link-icon">🎓</span>
+                        <span class="link-name">Coursera</span>
+                        <span class="link-desc">在线课程</span>
+                    </a>
+                    <a href="https://www.udemy.com" class="link-item">
+                        <span class="link-icon">📖</span>
+                        <span class="link-name">Udemy</span>
+                        <span class="link-desc">技能学习</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 实用工具 -->
+            <div class="category">
+                <div class="category-title">实用工具</div>
+                <div class="links">
+                    <a href="https://translate.google.com" class="link-item">
+                        <span class="link-icon">🌐</span>
+                        <span class="link-name">Google翻译</span>
+                        <span class="link-desc">在线翻译</span>
+                    </a>
+                    <a href="https://www.deepl.com" class="link-item">
+                        <span class="link-icon">🔤</span>
+                        <span class="link-name">DeepL</span>
+                        <span class="link-desc">AI翻译</span>
+                    </a>
+                    <a href="https://regex101.com" class="link-item">
+                        <span class="link-icon">🔍</span>
+                        <span class="link-name">Regex101</span>
+                        <span class="link-desc">正则测试</span>
+                    </a>
+                    <a href="https://caniuse.com" class="link-item">
+                        <span class="link-icon">✅</span>
+                        <span class="link-name">Can I Use</span>
+                        <span class="link-desc">兼容性查询</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- AI工具 -->
+            <div class="category">
+                <div class="category-title">AI工具</div>
+                <div class="links">
+                    <a href="https://chat.openai.com" class="link-item">
+                        <span class="link-icon">🤖</span>
+                        <span class="link-name">ChatGPT</span>
+                        <span class="link-desc">AI对话</span>
+                    </a>
+                    <a href="https://claude.ai" class="link-item">
+                        <span class="link-icon">🧠</span>
+                        <span class="link-name">Claude</span>
+                        <span class="link-desc">AI助手</span>
+                    </a>
+                    <a href="https://www.midjourney.com" class="link-item">
+                        <span class="link-icon">🎨</span>
+                        <span class="link-name">Midjourney</span>
+                        <span class="link-desc">AI绘画</span>
+                    </a>
+                    <a href="https://copilot.github.com" class="link-item">
+                        <span class="link-icon">✨</span>
+                        <span class="link-name">GitHub Copilot</span>
+                        <span class="link-desc">AI编程</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 社交媒体 -->
+            <div class="category">
+                <div class="category-title">社交媒体</div>
+                <div class="links">
+                    <a href="https://twitter.com" class="link-item">
+                        <span class="link-icon">🐦</span>
+                        <span class="link-name">Twitter</span>
+                        <span class="link-desc">社交平台</span>
+                    </a>
+                    <a href="https://www.reddit.com" class="link-item">
+                        <span class="link-icon">🔴</span>
+                        <span class="link-name">Reddit</span>
+                        <span class="link-desc">论坛社区</span>
+                    </a>
+                    <a href="https://www.zhihu.com" class="link-item">
+                        <span class="link-icon">💡</span>
+                        <span class="link-name">知乎</span>
+                        <span class="link-desc">问答社区</span>
+                    </a>
+                    <a href="https://weibo.com" class="link-item">
+                        <span class="link-icon">📱</span>
+                        <span class="link-name">微博</span>
+                        <span class="link-desc">社交网络</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>GTools - 让工作更高效 | Made with ❤️</p>
+        </footer>
+    </div>
+
+    <script>
+        function handleSearch(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        function performSearch() {
+            const input = document.getElementById('searchInput').value.trim();
+            if (!input) return;
+
+            // 判断是否是URL
+            if (input.match(/^https?:\/\//i) || input.includes('.')) {
+                const url = input.match(/^https?:\/\//i) ? input : 'https://' + input;
+                window.location.href = url;
+            } else {
+                // 默认使用必应搜索
+                window.location.href = 'https://www.bing.com/s?wd=' + encodeURIComponent(input);
+            }
+        }
+
+        // 阻止所有链接的默认行为，改为在当前窗口打开
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.location.href = this.href;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) NSScrollView *scrollView;
 @property (nonatomic, strong) NSButton *addButton;
 @property (nonatomic, strong) NSButton *deleteButton;
+@property (nonatomic, strong) NSButton *resetButton;
 @property (nonatomic, strong) NSTextField *helpLabel;
 @property (nonatomic, strong) NSMutableArray<NSMutableDictionary *> *menuItems;
 
@@ -37,6 +38,12 @@
     if (self) {
         [self setupWindow];
         [self loadMenuItems];
+
+        // 监听重置通知
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(handleMenuItemsReset:)
+                                                     name:@"MenuItemsDidReset"
+                                                   object:nil];
     }
     return self;
 }
@@ -146,6 +153,14 @@
     self.deleteButton.target = self;
     self.deleteButton.action = @selector(deleteMenuItem:);
     [self.visualEffectView addSubview:self.deleteButton];
+
+    // 重置按钮
+    self.resetButton = [[NSButton alloc] initWithFrame:NSMakeRect(240, 30, 100, 35)];
+    self.resetButton.title = @"重置";
+    self.resetButton.bezelStyle = NSBezelStyleRounded;
+    self.resetButton.target = self;
+    self.resetButton.action = @selector(resetToDefault:);
+    [self.visualEffectView addSubview:self.resetButton];
 }
 
 - (void)loadMenuItems {
@@ -165,6 +180,10 @@
 }
 
 - (void)showWindow {
+    // 每次显示窗口时重新加载数据
+    [self loadMenuItems];
+    [self.tableView reloadData];
+
     [self.mainWindow makeKeyAndOrderFront:nil];
     [NSApp activateIgnoringOtherApps:YES];
 }
@@ -189,6 +208,27 @@
         [self.tableView reloadData];
         [self saveMenuItems];
     }
+}
+
+- (void)resetToDefault:(id)sender {
+    NSAlert *alert = [[NSAlert alloc] init];
+    alert.messageText = @"确认重置";
+    alert.informativeText = @"确定要重置为默认配置吗？当前配置将被删除。";
+    alert.alertStyle = NSAlertStyleWarning;
+    [alert addButtonWithTitle:@"确定"];
+    [alert addButtonWithTitle:@"取消"];
+
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
+        [[MenuItemDataManager sharedManager] resetToDefault];
+        [self loadMenuItems];
+        [self.tableView reloadData];
+        [self saveMenuItems];
+    }
+}
+
+- (void)handleMenuItemsReset:(NSNotification *)notification {
+    [self loadMenuItems];
+    [self.tableView reloadData];
 }
 
 #pragma mark - NSTableViewDataSource
@@ -217,6 +257,10 @@
 
 - (BOOL)tableView:(NSTableView *)tableView shouldEditTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     return YES;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSArray<NSDictionary *> *)loadMenuItems;
 - (void)saveMenuItems:(NSArray<NSDictionary *> *)menuItems;
+- (void)resetToDefault;
 
 @end
 

@@ -232,15 +232,19 @@
         NSString *appleScript = [NSString stringWithFormat:@"do shell script \"%@\" with administrator privileges", escapedCommand];
         [self executeAppleScript:appleScript];
     } else {
-        NSTask *task = [[NSTask alloc] init];
-        task.launchPath = @"/bin/bash";
-        task.arguments = @[@"-c", command];
+        // 创建临时脚本文件并在Terminal中打开
+        NSString *tempDir = NSTemporaryDirectory();
+        NSString *scriptPath = [tempDir stringByAppendingPathComponent:[NSString stringWithFormat:@"gtools_%@.command", [[NSUUID UUID] UUIDString]]];
 
-        @try {
-            [task launch];
-        } @catch (NSException *exception) {
-            NSLog(@"执行Bash命令失败: %@", exception);
-        }
+        // 写入脚本内容
+        NSString *scriptContent = [NSString stringWithFormat:@"#!/bin/bash\ncd ~\n%@\necho \"\"\necho \"按任意键关闭...\"\nread -n 1\nexit", command];
+        [scriptContent writeToFile:scriptPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+
+        // 设置可执行权限
+        [[NSFileManager defaultManager] setAttributes:@{NSFilePosixPermissions: @0755} ofItemAtPath:scriptPath error:nil];
+
+        // 使用open打开.command文件，Terminal会自动执行
+        [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:scriptPath]];
     }
 }
 
