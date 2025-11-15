@@ -230,21 +230,22 @@
         // 使用osascript执行带sudo的命令
         NSString *escapedCommand = [command stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
         NSString *appleScript = [NSString stringWithFormat:@"do shell script \"%@\" with administrator privileges", escapedCommand];
-        [self executeAppleScript:appleScript];
+        [self executeAppleScriptViaOsascript:appleScript];
     } else {
-        // 创建临时脚本文件并在Terminal中打开
-        NSString *tempDir = NSTemporaryDirectory();
-        NSString *scriptPath = [tempDir stringByAppendingPathComponent:[NSString stringWithFormat:@"gtools_%@.command", [[NSUUID UUID] UUIDString]]];
+        // 使用osascript打开新的Terminal窗口并执行命令
+        // 转义命令中的特殊字符
+        NSString *escapedCommand = [command stringByReplacingOccurrencesOfString:@"\\" withString:@"\\\\"];
+        escapedCommand = [escapedCommand stringByReplacingOccurrencesOfString:@"\"" withString:@"\\\""];
 
-        // 写入脚本内容
-        NSString *scriptContent = [NSString stringWithFormat:@"#!/bin/bash\ncd ~\n%@\necho \"\"\necho \"按任意键关闭...\"\nread -n 1\nexit", command];
-        [scriptContent writeToFile:scriptPath atomically:YES encoding:NSUTF8StringEncoding error:nil];
+        // 构建AppleScript：打开新窗口，输入命令并执行
+        NSString *appleScript = [NSString stringWithFormat:
+            @"tell application \"Terminal\"\n"
+            @"    activate\n"
+            @"    do script \"%@\"\n"
+            @"end tell",
+            escapedCommand];
 
-        // 设置可执行权限
-        [[NSFileManager defaultManager] setAttributes:@{NSFilePosixPermissions: @0755} ofItemAtPath:scriptPath error:nil];
-
-        // 使用open打开.command文件，Terminal会自动执行
-        [[NSWorkspace sharedWorkspace] openURL:[NSURL fileURLWithPath:scriptPath]];
+        [self executeAppleScriptViaOsascript:appleScript];
     }
 }
 
@@ -255,6 +256,32 @@
 
     if (errorDict) {
         NSLog(@"执行AppleScript失败: %@", errorDict);
+    }
+}
+
+- (void)executeAppleScriptViaOsascript:(NSString *)script {
+    // 使用osascript命令行工具执行AppleScript
+    // 这种方式更容易触发系统权限提示
+    NSTask *task = [[NSTask alloc] init];
+    task.launchPath = @"/usr/bin/osascript";
+    task.arguments = @[@"-e", script];
+
+    // 捕获错误输出
+    NSPipe *errorPipe = [NSPipe pipe];
+    task.standardError = errorPipe;
+
+    @try {
+        [task launch];
+        [task waitUntilExit];
+
+        // 检查是否有错误
+        if (task.terminationStatus != 0) {
+            NSData *errorData = [[errorPipe fileHandleForReading] readDataToEndOfFile];
+            NSString *errorString = [[NSString alloc] initWithData:errorData encoding:NSUTF8StringEncoding];
+            NSLog(@"执行osascript失败: %@", errorString);
+        }
+    } @catch (NSException *exception) {
+        NSLog(@"执行osascript异常: %@", exception);
     }
 }
 
