@@ -93,7 +93,7 @@ iOSInjectionProject/
 .DS_Store
 .AppleDouble
 .LSOverride
-mac.xcuserdatad/
+xcuserdatad/
 # Icon must end with two \r
 Icon
 

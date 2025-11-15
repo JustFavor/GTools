@@ -3,7 +3,13 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(xcodebuild clean -project GTools.xcodeproj -scheme GTools)",
-      "Bash(xcodebuild build -project GTools.xcodeproj -scheme GTools)"
+      "Bash(xcodebuild build -project GTools.xcodeproj -scheme GTools)",
+      "Bash(xcodebuild:*)",
+      "Bash(/usr/libexec/PlistBuddy:*)",
+      "Bash(open:*)",
+      "Bash(cat:*)",
+      "Bash(tccutil reset:*)",
+      "Bash(killall:*)"
     ],
     "deny": [],
     "ask": []
